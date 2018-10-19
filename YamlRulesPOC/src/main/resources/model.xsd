@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="YamlRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="obligationId" type="xs:string"/>
+				<xs:element ref="selectionCriteria" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="YamlResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:string"/>
+				<xs:element name="process" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="loanDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="loanToValue" type="xs:string"/>
+				<xs:element name="mortSpecial" type="xs:string"/>
+				<xs:element name="offer" type="xs:string"/>
+				<xs:element name="obligationId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="ProcessResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:string"/>
+				<xs:element ref="valuePairs" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="valuePairs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="key" type="xs:string"/>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="selectionCriteria">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="groupName" type="xs:string"/>
+				<xs:element name="condition" type="xs:string"/>
+				<xs:element ref="rules" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rules">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="key" type="xs:string"/>
+				<xs:element name="condition" type="xs:string"/>
+				<xs:element name="operator" type="xs:string"/>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
